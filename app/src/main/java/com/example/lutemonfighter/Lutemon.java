@@ -74,6 +74,10 @@ public class Lutemon extends Creature {
         this.id = id;
     }
 
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
     public int getFaintCount() {
         return faintCount;
     }

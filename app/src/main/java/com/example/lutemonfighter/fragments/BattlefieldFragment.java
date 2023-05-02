@@ -265,16 +265,25 @@ public class BattlefieldFragment extends Fragment {
         addTextToHistory(lutemon.getName() + " now has " + lutemon.getHealth() + "/" + lutemon.getMaxHealth() + " hp, and the " + enemy.getName()  + " has " + enemy.getHealth() + "/" + enemy.getMaxHealth() + " hp.\n\n");
     }
 
+    private void resetLutemon(Lutemon lutemon) {
+        String text = lutemon.getName() + " (fainted)";
+        ((CheckBox) linearLayout.getChildAt(localIdList.indexOf(lutemon.getId()))).setText(text);
+        addTextToHistory(lutemon.getName() + " has fainted! Their stats have been reset to default.\n");
+
+        Lutemon newLutemon = new Lutemon("Temp", lutemon.getColor());
+        lutemon.setAttack(newLutemon.getAttack());
+        lutemon.setDefense(newLutemon.getDefense());
+        lutemon.setMaxHealth(newLutemon.getMaxHealth());
+        lutemon.setExperience(0);
+        lutemon.setFaintCount(lutemon.getFaintCount() + 1);
+    }
+
     private boolean checkLutemonStatus(Lutemon lutemon, ArrayList<Lutemon> lutemons, Enemy enemy) {
         if (lutemon.getHealth() <= 0) {
-            String text = lutemon.getName() + " (fainted)";
-            ((CheckBox) linearLayout.getChildAt(localIdList.indexOf(lutemon.getId()))).setText(text);
-            addTextToHistory(lutemon.getName() + " has fainted! Their stats have been reset to default.\n");
-            addTextToHistory("The " + enemy.getName() + " now still has " + enemy.getHealth() + " hp.\n\n");
-            lutemon.setFaintCount(lutemon.getFaintCount() + 1);
-
+            resetLutemon(lutemon);
             for (Lutemon testLutemon : lutemons) {
                 if (testLutemon.getHealth() > 0) {
+                    addTextToHistory("The " + enemy.getName() + " still has " + enemy.getHealth() + " hp.\n\n");
                     return true;
                 }
             }

@@ -32,14 +32,6 @@ public class Creature implements Serializable {
         this.name = name;
     }
 
-    public int getAttack() {
-        return attack;
-    }
-
-    public int getDefense() {
-        return defense;
-    }
-
     public int getHealth() {
         return health;
     }
@@ -52,6 +44,26 @@ public class Creature implements Serializable {
             health = 0;
         }
         this.health = health;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     public int getMaxHealth() {

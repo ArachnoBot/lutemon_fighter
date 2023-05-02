@@ -3,6 +3,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="howToPlayText">
     How to play:\n1. Create lutemons in the home view\n2. Train and level up your lutemons\n3. Fight all kinds of enemies on the battlefield\n4. Advance up to battlefield level 5 to beat the final boss!\n
-    \nTips:\nWhen you move lutemons to home they are healed\nIf a lutemon goes to 0 hp, they will lose their progress\n
+    \nTips:\nWhen you move lutemons to home they are healed\nIf a lutemon goes to 0 hp, they will lose their progress\nThe lutemon with the most health will always be the one attacking
     </string>
 </resources>

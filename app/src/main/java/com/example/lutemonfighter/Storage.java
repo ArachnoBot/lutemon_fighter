@@ -44,4 +44,8 @@ public class Storage {
     public String getLutemonStats(Lutemon lutemon) {
         return lutemon.getName() + "'s stats: att: " + lutemon.getAttack() + ", def: " + lutemon.getDefense() + ", hp: " + lutemon.getHealth() + ", max hp: " + lutemon.getMaxHealth() + ", exp: " + lutemon.getExperience() + ".\n";
     }
+
+    public void removeLutemonById(int id) {
+        lutemonMap.remove(id);
+    }
 }

@@ -109,10 +109,7 @@ public class TrainingAreaFragment extends Fragment {
         for (int i = 0; i < localIdList.size(); i++) {
             lutemon = storage.getLutemonById(localIdList.get(i));
             if (lutemon.getHealth() <= 0) {
-                String text = lutemon.getName() + " (fainted)";
-                ((CheckBox) linearLayout.getChildAt(localIdList.indexOf(lutemon.getId()))).setText(text);
-                addTextToHistory(lutemon.getName() + " has fainted! Their stats have been reset to default.\n");
-                lutemon.setFaintCount(lutemon.getFaintCount() + 1);
+                resetLutemon(lutemon);
                 addTextToHistory("Training stopped.\n\n");
                 return true;
             }
@@ -126,6 +123,19 @@ public class TrainingAreaFragment extends Fragment {
             addTextToHistory(storage.getLutemonStats(lutemon) + "\n");
         }
         return false;
+    }
+
+    private void resetLutemon(Lutemon lutemon) {
+        String text = lutemon.getName() + " (fainted)";
+        ((CheckBox) linearLayout.getChildAt(localIdList.indexOf(lutemon.getId()))).setText(text);
+        addTextToHistory(lutemon.getName() + " has fainted! Their stats have been reset to default.\n");
+
+        Lutemon newLutemon = new Lutemon("Temp", lutemon.getColor());
+        lutemon.setAttack(newLutemon.getAttack());
+        lutemon.setDefense(newLutemon.getDefense());
+        lutemon.setMaxHealth(newLutemon.getMaxHealth());
+        lutemon.setExperience(0);
+        lutemon.setFaintCount(lutemon.getFaintCount() + 1);
     }
 
     private void receiveLutemons(Bundle result) {

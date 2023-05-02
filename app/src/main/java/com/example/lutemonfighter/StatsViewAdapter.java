@@ -33,7 +33,7 @@ public class StatsViewAdapter extends RecyclerView.Adapter<StatsViewAdapter.MyVi
     public void onBindViewHolder(@NonNull StatsViewAdapter.MyViewHolder holder, int position) {
         String color = "(" + lutemons.get(position).getColor() + ")";
         String attack = "att: " + lutemons.get(position).getAttack();
-        String defense = "def: " + lutemons.get(position).getAttack();
+        String defense = "def: " + lutemons.get(position).getDefense();
         String health = "hp: " + lutemons.get(position).getHealth();
         String maxHealth = "max hp: " + lutemons.get(position).getMaxHealth();
         String experience = "experience gained: " + lutemons.get(position).getExperience();
