@@ -34,7 +34,7 @@ public class StatisticsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_statistics, container, false);
-        RecyclerView statsRecyclerView = view.findViewById(R.id.statsRecyclerView);
+        statsRecyclerView = view.findViewById(R.id.statsRecyclerView);
         statsViewAdapter = new StatsViewAdapter(getContext(), getLutemonList());
         statsRecyclerView.setAdapter(statsViewAdapter);
         statsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -46,7 +46,7 @@ public class StatisticsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (statsViewAdapter.getItemCount() != getLutemonList().size()) {
-            RecyclerView statsRecyclerView = getView().findViewById(R.id.statsRecyclerView);
+            statsRecyclerView = getView().findViewById(R.id.statsRecyclerView);
             statsViewAdapter = new StatsViewAdapter(getContext(), getLutemonList());
             statsRecyclerView.setAdapter(statsViewAdapter);
             statsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
